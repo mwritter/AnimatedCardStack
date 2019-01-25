@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         child: Center(
           child: AnimatedCardStack(
-            duration: Duration(seconds: 1),
+            duration: Duration(microseconds: 100),
             firstWidget: Container(
               color: Colors.lightBlue,
               height: 150.0,

@@ -23,7 +23,7 @@ class _AnimatedCardStackState extends State<AnimatedCardStack>
   Widget firstWidget;
   Widget secondWidget;
   Duration animationDuration;
-
+  String currentCard = "Sign in";
   @override
   void initState() {
     super.initState();
@@ -44,6 +44,7 @@ class _AnimatedCardStackState extends State<AnimatedCardStack>
     )..addStatusListener((status) {
         if (status == AnimationStatus.completed) {
           swap = !swap;
+
           controller.reverse();
         }
       });
@@ -87,13 +88,68 @@ class _AnimatedCardStackState extends State<AnimatedCardStack>
     );
   }
 
+  _buttonTap(String card) {
+    if (currentCard == card) {
+      return;
+    } else {
+      setState(() {
+        controller.forward();
+        controllerTwo.forward();
+        currentCard = card;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Stack(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          !swap ? _buildCardOne() : _buildCardTwo(),
-          !swap ? _buildCardTwo() : _buildCardOne(),
+          Stack(
+            children: <Widget>[
+              !swap ? _buildCardOne() : _buildCardTwo(),
+              !swap ? _buildCardTwo() : _buildCardOne(),
+            ],
+          ),
+          //Controls
+          SizedBox(
+            height: 100.0,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              GestureDetector(
+                onTap: () {
+                  _buttonTap("Sign in");
+                },
+                child: Material(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Colors.lightBlue,
+                  child: Container(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text("Sign in"),
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 50.0,
+              ),
+              GestureDetector(
+                onTap: () {
+                  _buttonTap("Sign up");
+                },
+                child: Material(
+                  borderRadius: BorderRadius.circular(10.0),
+                  color: Colors.lightBlue,
+                  child: Container(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text("Sign up"),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );
