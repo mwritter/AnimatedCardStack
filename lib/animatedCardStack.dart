@@ -71,14 +71,38 @@ class _AnimatedCardStackState extends State<AnimatedCardStack>
     super.dispose();
   }
 
+  Widget _buildCardOne() {
+    return Transform.rotate(
+      origin: Offset(50.0, 100.0),
+      angle: animation.value,
+      child: firstWidget,
+    );
+  }
+
+  Widget _buildCardTwo() {
+    return Transform.rotate(
+      origin: Offset(-50.0, 100.0),
+      angle: animationTwo.value,
+      child: secondWidget,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Stack(
-        children: <Widget>[
-          !swap ? firstWidget : secondWidget,
-          !swap ? secondWidget : firstWidget,
-        ],
+      child: GestureDetector(
+        onTap: () {
+          setState(() {
+            controller.forward();
+            controllerTwo.forward();
+          });
+        },
+        child: Stack(
+          children: <Widget>[
+            !swap ? _buildCardOne() : _buildCardTwo(),
+            !swap ? _buildCardTwo() : _buildCardOne(),
+          ],
+        ),
       ),
     );
   }
