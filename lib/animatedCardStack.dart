@@ -31,10 +31,9 @@ class _AnimatedCardStackState extends State<AnimatedCardStack>
     secondWidget = widget.secondWidget;
     animationDuration = widget.duration;
 
-    controller =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 800));
+    controller = AnimationController(vsync: this, duration: animationDuration);
     controllerTwo =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 800));
+        AnimationController(vsync: this, duration: animationDuration);
 
     animation = Tween(begin: 0.0, end: 0.7).animate(
       CurvedAnimation(
