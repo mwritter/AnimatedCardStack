@@ -1,4 +1,6 @@
 import 'package:card_stack_app/animatedCardStack.dart';
+import 'package:card_stack_app/signin.dart';
+import 'package:card_stack_app/signup.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -29,17 +31,9 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         child: Center(
           child: AnimatedCardStack(
-            duration: Duration(milliseconds: 500),
-            firstWidget: Container(
-              color: Colors.lightBlue,
-              height: 150.0,
-              width: 150.0,
-            ),
-            secondWidget: Container(
-              color: Colors.lightGreen,
-              height: 150.0,
-              width: 150.0,
-            ),
+            duration: Duration(milliseconds: 450),
+            firstWidget: SignUp(),
+            secondWidget: SignIn(),
           ),
         ),
       ),

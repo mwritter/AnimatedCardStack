@@ -113,7 +113,7 @@ class _AnimatedCardStackState extends State<AnimatedCardStack>
           ),
           //Controls
           SizedBox(
-            height: 100.0,
+            height: MediaQuery.of(context).size.height * 0.1,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
