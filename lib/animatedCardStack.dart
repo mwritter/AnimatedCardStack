@@ -63,7 +63,7 @@ class _AnimatedCardStackState extends State<AnimatedCardStack>
         }
       }));
 
-    animation = Tween(begin: 0.0, end: 0.7).animate(
+    animation = Tween(begin: 0.0, end: 0.5).animate(
       CurvedAnimation(
           parent: controller,
           curve: Curves.elasticOut,
@@ -74,7 +74,7 @@ class _AnimatedCardStackState extends State<AnimatedCardStack>
           controller.reverse();
         }
       });
-    animationTwo = Tween(begin: 0.0, end: -0.7).animate(
+    animationTwo = Tween(begin: 0.0, end: -0.5).animate(
       CurvedAnimation(
         parent: controller,
         curve: Curves.elasticOut,
@@ -170,6 +170,7 @@ class _AnimatedCardStackState extends State<AnimatedCardStack>
                   elevation: 3.0,
                   borderRadius: BorderRadius.circular(10.0),
                   child: InkWell(
+                    borderRadius: BorderRadius.circular(10.0),
                     highlightColor: Colors.lightBlue,
                     onTap: () {
                       _buttonTap("Sign in");
@@ -201,6 +202,7 @@ class _AnimatedCardStackState extends State<AnimatedCardStack>
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(10.0),
                   child: InkWell(
+                    borderRadius: BorderRadius.circular(10.0),
                     highlightColor: Colors.lightBlue,
                     onTap: () {
                       _buttonTap("Sign up");

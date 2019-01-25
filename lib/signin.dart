@@ -16,7 +16,7 @@ class SignIn extends StatelessWidget {
                 color: Colors.grey, offset: Offset(3.0, 3.0), blurRadius: 5.0),
           ]),
       height: MediaQuery.of(context).size.height * 0.70,
-      width: MediaQuery.of(context).size.width * 0.80,
+      width: MediaQuery.of(context).size.width * 0.90,
       child: Stack(
         children: <Widget>[
           Positioned(
