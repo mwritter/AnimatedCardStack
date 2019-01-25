@@ -90,19 +90,11 @@ class _AnimatedCardStackState extends State<AnimatedCardStack>
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: GestureDetector(
-        onTap: () {
-          setState(() {
-            controller.forward();
-            controllerTwo.forward();
-          });
-        },
-        child: Stack(
-          children: <Widget>[
-            !swap ? _buildCardOne() : _buildCardTwo(),
-            !swap ? _buildCardTwo() : _buildCardOne(),
-          ],
-        ),
+      child: Stack(
+        children: <Widget>[
+          !swap ? _buildCardOne() : _buildCardTwo(),
+          !swap ? _buildCardTwo() : _buildCardOne(),
+        ],
       ),
     );
   }
